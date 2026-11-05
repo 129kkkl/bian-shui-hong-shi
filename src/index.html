@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#e7e4d6">
+  <meta name="description" content="汴水虹市，一座取意于清明上河图的三维体素微缩世界。木拱虹桥、两岸街市与往来舟运，皆可自由观赏。">
+  <title>汴水虹市 · 春日汴河上的一刻</title>
+  <style>/* INLINE_CSS */</style>
+</head>
+<body>
+  <main id="world" aria-label="可拖拽旋转、缩放和平移的三维汴河市井"></main>
+  <div id="loading" role="status"><span class="loading-seal">汴</span><p>正在铺开一河春色</p><div class="loading-line"></div></div>
+  <header class="masthead">
+    <div class="eyebrow"><span class="small-line"></span> 一卷风物 · 一座人间</div>
+    <div class="title-row"><h1>汴水虹市</h1><span class="seal" aria-hidden="true">春<br>和</span></div>
+    <p class="subtitle">春水穿桥过，百业向河生。</p>
+    <p class="edition">HONGQIAO · A LIVING MINIATURE</p>
+  </header>
+  <aside class="top-right" aria-label="作品状态">
+    <span class="live-dot" aria-hidden="true"></span><span id="world-state">晴昼 · 市井正忙</span>
+    <button id="about-toggle" class="round-button" aria-label="查看作品介绍与操作说明" title="作品介绍（?）">序</button>
+  </aside>
+  <nav class="discovery-tools" aria-label="游历工具">
+    <button id="atmosphere" class="tool-button" aria-label="切换环境，当前晴昼" title="环境时刻（T）"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.2"/><path d="M10 1.8v2M10 16.2v2M1.8 10h2M16.2 10h2M4.2 4.2l1.4 1.4M14.4 14.4l1.4 1.4M4.2 15.8l1.4-1.4M14.4 5.6l1.4-1.4"/></svg><span id="atmosphere-label">晴昼</span></button>
+    <button id="guide-toggle" class="tool-button" aria-pressed="false" aria-controls="guide-panel" title="风物导览（G）"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 4.5c2.8-.8 5-.2 7 1.3v10c-2-1.5-4.2-2.1-7-1.3ZM17 4.5c-2.8-.8-5-.2-7 1.3v10c2-1.5 4.2-2.1-7-1.3Z"/></svg><span>风物</span></button>
+    <button id="capture-photo" class="tool-button" title="留影 · 导出当前画面 PNG"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2.5 6.5h3l1.2-2h6.6l1.2 2h3v10h-15Z"/><circle cx="10" cy="11" r="3.1"/></svg><span>留影</span></button>
+  </nav>
+  <nav class="viewpoints" aria-label="观赏视角">
+    <span class="nav-label">游 观</span>
+    <button class="view-button active" data-view="overview" aria-current="true"><span>01</span>全景</button>
+    <button class="view-button" data-view="bridge"><span>02</span>虹桥</button>
+    <button class="view-button" data-view="market"><span>03</span>街市</button>
+    <button class="view-button" data-view="river"><span>04</span>舟运</button>
+    <button class="view-button" data-view="under"><span>05</span>桥下</button>
+  </nav>
+  <div id="scene-caption" class="scene-caption"><span class="caption-index">壹</span><div><strong id="caption-title">虹桥春渡</strong><span id="caption-copy">木拱凌波，市声连岸。</span><button id="follow" class="caption-action" aria-pressed="false" hidden>随船漫游 <span aria-hidden="true">→</span></button></div></div>
+  <footer class="bottom-bar">
+    <div class="transport" role="group" aria-label="动态控制">
+      <button id="play" class="play-button" aria-label="暂停动态" title="暂停 / 播放（空格）"><svg id="pause-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4v12M14 4v12"/></svg><svg id="play-icon" class="hidden" viewBox="0 0 20 20" aria-hidden="true"><path d="m6 3 10 7-10 7Z"/></svg><span id="play-label">暂停</span></button>
+      <span class="divider" aria-hidden="true"></span>
+      <button id="speed" aria-label="快进，当前一倍速度" title="切换 1 / 2 / 4 倍速度（F）">1× <span class="speed-label">流速</span></button>
+      <span class="divider" aria-hidden="true"></span>
+      <button id="reset" aria-label="恢复初始视角" title="恢复初始视角（R）"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8a6.5 6.5 0 1 1 0 5M4 3v5h5"/></svg><span>归位</span></button>
+    </div>
+    <div class="interaction-hint"><span>拖拽 <b>旋转</b></span><i>·</i><span>滚轮 <b>远近</b></span><i>·</i><span>右键拖拽 <b>平移</b></span><button id="help" class="hint-help" aria-label="查看操作说明">?</button></div>
+    <button id="quality" class="quality-button" aria-label="画质，自动模式" title="切换自动 / 精致 / 流畅画质">画质 · 自动</button>
+  </footer>
+  <aside id="guide-panel" class="guide-panel hidden" aria-labelledby="guide-title">
+    <div class="guide-heading"><span id="guide-step">风物志 · 壹 / 伍</span><button id="guide-close" class="small-close" aria-label="退出风物导览">×</button></div>
+    <h2 id="guide-title">虹桥营造</h2><p id="guide-copy"></p>
+    <div class="guide-footer"><button id="guide-prev" class="text-button">← 上一则</button><span id="guide-progress" aria-label="导览进度">壹 / 伍</span><button id="guide-next" class="text-button">下一则 →</button></div>
+  </aside>
+  <dialog id="about" class="panel" aria-labelledby="about-title">
+    <button id="about-close" class="panel-close" aria-label="关闭介绍">×</button>
+    <span class="panel-kicker">ABOUT THE WORK · 2.0</span>
+    <h2 id="about-title">河上有桥，桥上有人间。</h2>
+    <p>取意于《清明上河图》的虹桥段。以体素木构、灰瓦屋舍与细小的日常动作，重组一刻春日汴河。</p>
+    <p>从晨曦走到灯夕，随一叶货船穿过虹桥；也可以打开风物志，读一读木拱、百业与河岸人家的故事。</p>
+    <div class="panel-rule"></div>
+    <p class="fine-print">这是基于画作意象的原创空间演绎，建筑与木拱采用艺术化组合，并非历史测绘复原。</p>
+    <dl><div><dt>旋转</dt><dd>左键拖拽 / 单指拖动</dd></div><div><dt>缩放</dt><dd>滚轮 / 双指缩放</dd></div><div><dt>平移</dt><dd>右键拖拽 / Shift + 拖拽 / 双指移动</dd></div><div><dt>时光</dt><dd>空格 暂停 · F 快进 · R 归位</dd></div><div><dt>游观</dt><dd>数字 1—5 视角 · T 环境 · G 风物</dd></div><div><dt>舟运</dt><dd>舟运视角可随船，拖拽即可退出跟随</dd></div><div><dt>留影</dt><dd>「留影」按钮导出当前三维画面 PNG</dd></div></dl>
+    <span class="panel-foot">汴水虹市 2.0 · 程序生成 · 离线可赏</span>
+  </dialog>
+  <div id="toast" role="status" class="toast"></div>
+  <div id="error" class="hidden" role="alert"><h2>暂时无法展开这幅市井</h2><p id="error-copy"></p><button onclick="location.reload()">重新打开</button></div>
+  <script>/* INLINE_JS */</script>
+</body>
+</html>

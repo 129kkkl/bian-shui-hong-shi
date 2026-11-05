@@ -1,0 +1,23 @@
+{
+  "name": "bian-shui-hong-shi",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "汴水虹市 · 一座可漫游、可导览的北宋体素市井",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node server.mjs",
+    "preview": "node tests/preview.mjs",
+    "test": "node tests/browser.mjs",
+    "test:server": "node tests/server.mjs",
+    "verify": "npm run build && npm test && npm run test:server",
+    "package": "npm run verify && node package.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "playwright": "1.64.1"
+  }
+}
